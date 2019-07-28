@@ -11,7 +11,7 @@ func HeapSort(nums []int){
 	}
 	//根据双亲节点，来构造一个大顶堆
 	for i:= len(nums)/2-1;i>=0;i--{
-		buildHead(nums,i,len(nums)-1)
+		buildHeap(nums,i,len(nums)-1)
 	}
 	//使这个数组有序，数组中最有一个依次和堆顶元素互换
 	//然后在重新构造
@@ -19,11 +19,11 @@ func HeapSort(nums []int){
 		//交换完之后，最后一个就是最大的了
 		nums[0],nums[i] = nums[i],nums[0]
 		//提出最后一个，在重新构造
-		buildHead(nums,0,i-1)
+		buildHeap(nums,0,i-1)
 	}
 }
 
-func buildHead(nums []int,parentIndex,length int){
+func buildHeap(nums []int,parentIndex,length int){
 	//临时保存数据
 	key := nums[parentIndex]
 	//用这个双亲节点的左右孩子和这个key比较
