@@ -7,5 +7,5 @@ import (
 func main() {
 	Tree := dataStruct.CreateBinaryTree()
 
-	 dataStruct.ReverseBinaryTree3(Tree)
+	dataStruct.ReverseBinaryTree3(Tree)
 }

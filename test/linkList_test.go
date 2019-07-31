@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestAdd (t *testing.T){
+func TestAdd(t *testing.T) {
 	L := new(dataStruct.LinkList)
 
 	L.Add("a")
@@ -13,7 +13,7 @@ func TestAdd (t *testing.T){
 	L.Add("c")
 }
 
-func TestInsert (t *testing.T){
+func TestInsert(t *testing.T) {
 	L := new(dataStruct.LinkList)
 
 	L.Add("a")
@@ -21,13 +21,13 @@ func TestInsert (t *testing.T){
 	L.Add("c")
 
 	//插入的到第一个
-	L.InsertNode(1,"aa")
+	L.InsertNode(1, "aa")
 
 	//插入到中间最后
-	L.InsertNode(2,"bb")
+	L.InsertNode(2, "bb")
 }
 
-func TestDelete (t *testing.T){
+func TestDelete(t *testing.T) {
 	L := new(dataStruct.LinkList)
 
 	L.Add("a")
@@ -37,25 +37,25 @@ func TestDelete (t *testing.T){
 	L.Delete(1)
 }
 
-func TestGetValueLocation(t *testing.T){
+func TestGetValueLocation(t *testing.T) {
 	L := new(dataStruct.LinkList)
 
 	L.Add("a")
 	L.Add("b")
 	L.Add("c")
 
-	index,_ := L.GetValueLocation("b")
-	t.Logf("%v",index)
+	index, _ := L.GetValueLocation("b")
+	t.Logf("%v", index)
 }
 
-func TestReverse(t *testing.T){
+func TestReverse(t *testing.T) {
 	L := new(dataStruct.LinkList)
 	L.Add("a")
 	L.Add("b")
 	L.Add("c")
 	L.Add("d")
 
-	L2,_ := L.Reverse()
-	node,_ := L2.Get(1)
-	t.Logf("%v",node.Data)
+	L2, _ := L.Reverse()
+	node, _ := L2.Get(1)
+	t.Logf("%v", node.Data)
 }

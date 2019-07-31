@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestStackPush(t *testing.T){
+func TestStackPush(t *testing.T) {
 	stack := dataStruct.CreateStack()
 
 	stack.Push("a")
@@ -16,7 +16,7 @@ func TestStackPush(t *testing.T){
 	stack.Traverse()
 }
 
-func TestStackPop(t *testing.T){
+func TestStackPop(t *testing.T) {
 	stack := dataStruct.CreateStack()
 
 	stack.Push("a")
@@ -30,7 +30,7 @@ func TestStackPop(t *testing.T){
 	stack.Traverse()
 }
 
-func TestStackLength(t *testing.T){
+func TestStackLength(t *testing.T) {
 	stack := dataStruct.CreateStack()
 
 	stack.Push("a")
@@ -38,5 +38,5 @@ func TestStackLength(t *testing.T){
 	stack.Push("c")
 	stack.Push("d")
 
-	t.Log("栈的长度为",stack.Length())
+	t.Log("栈的长度为", stack.Length())
 }

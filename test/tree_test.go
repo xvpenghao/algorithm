@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestReverseBinaryTree(t *testing.T){
-    Tree := dataStruct.CreateBinaryTree()
-    dataStruct.ReverseBinaryTree(Tree)
+func TestReverseBinaryTree(t *testing.T) {
+	Tree := dataStruct.CreateBinaryTree()
+	dataStruct.ReverseBinaryTree(Tree)
 }
