@@ -25,3 +25,10 @@ func TestSelectSort(t *testing.T) {
 	mySort.SelectSort(nums)
 	t.Log("排序后的数组为：", nums)
 }
+
+//测试插入排序
+func TestInsertSort(t *testing.T) {
+	nums := []int{5, 3, 9, 1, 2, 6}
+	mySort.InsertSort(nums)
+	t.Log("排序后的数组为：", nums)
+}
