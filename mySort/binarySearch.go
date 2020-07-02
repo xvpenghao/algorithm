@@ -4,7 +4,8 @@ package mySort
 func binarySearch(nums []int, key int) int {
 	start, end := 0, len(nums)-1
 	var mid int
-	for start < end {
+	//查找的的key有可能是 数组的最后一个，所以 stat >=end
+	for start <= end {
 		//防止溢出的优化
 		mid = (end-start)>>1 + start
 		if nums[mid] == key {
@@ -22,7 +23,8 @@ func binarySearch(nums []int, key int) int {
 //二分查找递归
 func binarySearch2(nums []int, start, end, key int) int {
 	mid := (end-start)>>1 + start
-	if start >= end {
+	//注意这里有个小细节， start> end ,查找的key 可能是改数组最后一个，所以不能过早的退出
+	if start > end {
 		return -1
 	}
 
