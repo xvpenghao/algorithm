@@ -1,5 +1,7 @@
 package mySort
 
+//时间复杂 https://blog.csdn.net/u010452388/article/details/80891462
+// log2N
 //二分查找算法 非递归
 func binarySearch(nums []int, key int) int {
 	start, end := 0, len(nums)-1

@@ -2,10 +2,11 @@ package main
 
 import (
 	"algorithm/dataStruct"
+	"fmt"
 )
 
 func main() {
 	Tree := dataStruct.CreateBinaryTree()
-
-	dataStruct.ReverseBinaryTree3(Tree)
+	//dataStruct.PreTraverse(Tree)
+	fmt.Println(dataStruct.IsCompleteBinaryTree(Tree))
 }
