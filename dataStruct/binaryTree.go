@@ -133,13 +133,13 @@ func ReverseBinaryTree2(Tree *BinaryTree) {
 		node := stack[len(stack)-1]
 		//弹出元素
 		stack = stack[0 : len(stack)-1]
-		//栈中存放nil的元素也没事，也是这里不会去做断言操作
-		//这里也判断了为nil的元素时不会操作的
-		if node != nil {
+		//避免栈中添加一些nil值
+		node.Left, node.Right = node.Right, node.Left
+		if node.Left != nil {
 			stack = append(stack, node.Left)
+		}
+		if node.Right != nil {
 			stack = append(stack, node.Right)
-			//交换元素
-			node.Left, node.Right = node.Right, node.Left
 		}
 	}
 }
