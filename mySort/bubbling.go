@@ -25,3 +25,34 @@ func BobbleSort(nums []int) {
 		}
 	}
 }
+
+
+func BobbleSort2 (nums []int64){
+	//冒泡排序
+	for i:=1;i<len(nums);i++{
+		for j:=0;j<len(nums)-i;j++{
+			if nums[j]>nums[j+1]{
+				nums[j],nums[j+1] = nums[j+1],nums[j]
+			}
+		}
+	}
+}
+
+
+func BobbleSort3 (nums []int64){
+	var isSwap bool
+	for i:=1;i<len(nums);i++{
+		isSwap = false
+		//len(nums)-i;
+		for j:=0;j<len(nums)-i;j++{
+			if nums[j]>nums[j+1]{
+				//是否做了位置的交换
+				isSwap = true
+				nums[j],nums[j+1] = nums[j+1],nums[j]
+			}
+		}
+		if !isSwap{
+			break
+		}
+	}
+}

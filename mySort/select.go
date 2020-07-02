@@ -7,7 +7,8 @@ package mySort
  */
 func SelectSort(arrs []int) {
 	var minIndex int
-	for i := 0; i < len(arrs); i++ {
+	//可以少做一次的循环判断
+	for i := 0; i < len(arrs)-1; i++ {
 		minIndex = i
 		for j := i + 1; j < len(arrs); j++ {
 			if arrs[j] < arrs[minIndex] {
