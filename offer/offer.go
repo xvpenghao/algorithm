@@ -1,16 +1,48 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode"
+)
 
 func main() {
-	nums := [][]int{
-		{1, 4, 7, 11, 15},
-		{2, 5, 8, 12, 19},
-		{3, 6, 9, 16, 22},
-		{10, 13, 14, 17, 24},
-		{18, 21, 23, 26, 30},
+	fmt.Println(replaceSpace2("We are happy."))
+}
+
+//减少了内存的消耗，s+=""，这样会频繁的创建字符串对象，分配内存
+func replaceSpace2(s string) string {
+	//%20
+	strRunes := make([]rune, len(s)*3)
+	var index int
+	for _, v := range s {
+		if string(v) != " " {
+			strRunes[index] = v
+			index++
+			continue
+		}
+		strRunes[index] = '%'
+		index++
+		strRunes[index] = '2'
+		index++
+		strRunes[index] = '0'
+		index++
 	}
-	fmt.Println(findNumberIn2DArray2(nums, -1))
+
+	return string(strRunes[:index])
+}
+
+//剑指 Offer 05. 替换空格
+//https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/
+func replaceSpace(s string) string {
+	var newStr string
+	for _, v := range s {
+		if unicode.IsSpace(v) {
+			newStr += "%20"
+			continue
+		}
+		newStr += string(v)
+	}
+	return newStr
 }
 
 /*
