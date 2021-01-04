@@ -2,9 +2,9 @@ package dataStruct
 
 import "fmt"
 
-//双向链表
+// 双向链表
 
-//单向链表，头和尾插发
+// 单向链表，头和尾插发
 type LinkList struct {
 	length int
 	head   *Node
@@ -34,7 +34,7 @@ func (L *LinkList) addToLast(data interface{}) {
 
 	L.length++
 
-	//找到最后一个节点
+	// 找到最后一个节点
 	L2 := L.head
 	for L2.Next != nil {
 		L2 = L2.Next
@@ -48,7 +48,7 @@ func (L *LinkList) Get(index int) (*Node, error) {
 		return nil, LinkListError{"%s", "参数不合法"}
 	}
 
-	//因为你第一个节点也有值
+	// 因为你第一个节点也有值
 	current := L.head
 
 	for index > 1 {
@@ -59,7 +59,7 @@ func (L *LinkList) Get(index int) (*Node, error) {
 	return current, nil
 }
 
-//得到前一个，是为了在指定的位置添加
+// 得到前一个，是为了在指定的位置添加
 func (L *LinkList) getPerv(index int) (*Node, error) {
 	if index == 0 || index > L.length {
 		return nil, LinkListError{"%s", "参数不合法"}
@@ -77,24 +77,24 @@ func (L *LinkList) getPerv(index int) (*Node, error) {
 
 func (L *LinkList) InsertNode(index int, data interface{}) error {
 
-	//添加到第一个
+	// 添加到第一个
 	if index <= 1 {
 		L.addToFirst(data)
 		return nil
 	}
-	//添加到最后
+	// 添加到最后
 	if index >= L.length {
 		L.addToLast(data)
 		return nil
 	}
 
-	//则插入到中间
+	// 则插入到中间
 	prevNode, err := L.getPerv(index)
 	if err != nil {
 		return err
 	}
 
-	//节点的插入
+	// 节点的插入
 	node := new(Node)
 	node.Data = data
 	node.Next = prevNode.Next
@@ -104,7 +104,7 @@ func (L *LinkList) InsertNode(index int, data interface{}) error {
 	return nil
 }
 
-//这样节点的添加的就舒服了
+// 这样节点的添加的就舒服了
 func (L *LinkList) Add(data interface{}) {
 	if L.length == 0 {
 		L.addToFirst(data)
@@ -115,7 +115,7 @@ func (L *LinkList) Add(data interface{}) {
 }
 
 func (L *LinkList) Delete(index int) error {
-	//接受者不能为空，需要判断一下
+	// 接受者不能为空，需要判断一下
 	if L == nil {
 		return LinkListError{"%s", "接受者不能为空"}
 	}
@@ -123,7 +123,7 @@ func (L *LinkList) Delete(index int) error {
 		return LinkListError{"%s", "参数不合法"}
 	}
 
-	//删除第一个节点有点诡异其他还行
+	// 删除第一个节点有点诡异其他还行
 	if index == 1 {
 		L.head = L.head.Next
 		L.length--
@@ -139,7 +139,7 @@ func (L *LinkList) Delete(index int) error {
 	return nil
 }
 
-//单链表的反转
+// 单链表的反转
 // a->b->c->d
 // b->a->c->d
 // c->b->a->d
@@ -154,22 +154,22 @@ func (L *LinkList) Reverse() (*LinkList, error) {
 	var prev = tmp.Next
 	var current = prev.Next
 
-	//从第二个开始
+	// 从第二个开始
 	for current != nil {
-		//a c d
+		// a c d
 		prev.Next = current.Next
-		//b a c d
+		// b a c d
 		current.Next = tmp.Next
-		//b a c d
+		// b a c d
 		tmp.Next = current
-		//c
+		// c
 		current = prev.Next
 	}
 
 	return &LinkList{L.length, tmp.Next}, nil
 }
 
-//获取指定值的位置
+// 获取指定值的位置
 func (L *LinkList) GetValueLocation(data interface{}) (int, error) {
 	if L == nil || data == nil {
 		return -1, LinkListError{"%s", "参数或者接受者错误"}

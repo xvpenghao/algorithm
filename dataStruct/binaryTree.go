@@ -17,8 +17,8 @@ type BinaryTree struct {
 *@Description:创建二叉树
  */
 func CreateBinaryTree() *BinaryTree {
-	//根据先序创建二叉树
-	//AB##C##
+	// 根据先序创建二叉树
+	// AB##C##
 	var Tree *BinaryTree
 	var data string
 	fmt.Scanln(&data)
@@ -26,7 +26,7 @@ func CreateBinaryTree() *BinaryTree {
 		return nil
 	}
 
-	//开始创建二叉树
+	// 开始创建二叉树
 	Tree = new(BinaryTree)
 	Tree.Data = data
 	Tree.Left = CreateBinaryTree()
@@ -108,7 +108,7 @@ func getMax(n1, n2 int) int {
 *@Time:2019/7/24 0024
 *@Description:递归反转，二叉树的反转
  */
-func ReverseBinaryTree(Tree *BinaryTree)*BinaryTree {
+func ReverseBinaryTree(Tree *BinaryTree) *BinaryTree {
 	if Tree == nil {
 		return nil
 	}
@@ -125,15 +125,15 @@ func ReverseBinaryTree(Tree *BinaryTree)*BinaryTree {
 *@Description:递推二叉树的反转-利用栈
  */
 func ReverseBinaryTree2(Tree *BinaryTree) {
-	//利用栈完成二叉树的反转
+	// 利用栈完成二叉树的反转
 	var stack []*BinaryTree
 	stack = append(stack, Tree)
 	for len(stack) > 0 {
-		//取出栈顶元素
+		// 取出栈顶元素
 		node := stack[len(stack)-1]
-		//弹出元素
+		// 弹出元素
 		stack = stack[0 : len(stack)-1]
-		//避免栈中添加一些nil值
+		// 避免栈中添加一些nil值
 		node.Left, node.Right = node.Right, node.Left
 		if node.Left != nil {
 			stack = append(stack, node.Left)
@@ -149,11 +149,11 @@ func ReverseBinaryTree2(Tree *BinaryTree) {
 *@Time:2019/7/28 0028
 *@Description:递推二叉树的反转-利用队列
  */
-func ReverseBinaryTree3(tree *BinaryTree) *BinaryTree{
+func ReverseBinaryTree3(tree *BinaryTree) *BinaryTree {
 	if tree == nil {
 		return nil
 	}
-	//层次遍历交换节点
+	// 层次遍历交换节点
 	queue := list.New()
 	queue.PushBack(tree)
 
@@ -178,17 +178,17 @@ func ReverseBinaryTree3(tree *BinaryTree) *BinaryTree{
 func IterationPreTraverse(Tree *BinaryTree) {
 	T2 := Tree
 	var stack []*BinaryTree
-	//根左右
+	// 根左右
 	for len(stack) > 0 || T2 != nil {
 		for T2 != nil {
 			fmt.Println(T2.Data)
 			stack = append(stack, T2)
 			T2 = T2.Left
 		}
-		//弹出元素
+		// 弹出元素
 		T2 = stack[len(stack)-1]
 		stack = stack[0 : len(stack)-1]
-		//这里弹出的可能有nil，T2.nil就会报错了
+		// 这里弹出的可能有nil，T2.nil就会报错了
 		T2 = T2.Right
 	}
 }
@@ -224,7 +224,7 @@ func LevelTraverse(Tree *BinaryTree) {
 	queue.PushBack(Tree)
 
 	for queue.Len() > 0 {
-		//这个不存在为nil的值，因为下面都判断过了
+		// 这个不存在为nil的值，因为下面都判断过了
 		node := queue.Front().Value.(*BinaryTree)
 		fmt.Println(node.Data)
 
@@ -249,7 +249,7 @@ func IsCompleteBinaryTree(Tree *BinaryTree) bool {
 	queue := list.New()
 	queue.PushBack(Tree)
 
-	for queue.Len() > 0{
+	for queue.Len() > 0 {
 		ele := queue.Front()
 		// if ele.Value == nil{},这里不能这样直接判断
 		// 因为这样的接口是值为nil，但是itype类型不为nil,
@@ -262,10 +262,10 @@ func IsCompleteBinaryTree(Tree *BinaryTree) bool {
 		queue.PushBack(t2.Right)
 	}
 
-	//如果后面还有元素的，则说明不是玩去二叉树
-	//例如，a b c nil d e,
+	// 如果后面还有元素的，则说明不是玩去二叉树
+	// 例如，a b c nil d e,
 
-	//到这里这队列应该都nil才是 二叉树，否则就不是
+	// 到这里这队列应该都nil才是 二叉树，否则就不是
 	for queue.Len() > 0 {
 		ele := queue.Front()
 		t2 := queue.Remove(ele).(*BinaryTree)
