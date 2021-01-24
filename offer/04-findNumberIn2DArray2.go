@@ -12,7 +12,7 @@ func findNumberIn2DArray2(matrix [][]int, target int) bool {
 		return false
 	}
 	row, col := 0, len(matrix[0])-1
-	//与关键字比较，来踢行和踢列
+	// 与关键字比较，来踢行和踢列
 	for row < len(matrix) && col >= 0 {
 		if matrix[row][col] == target {
 			return true
@@ -26,13 +26,13 @@ func findNumberIn2DArray2(matrix [][]int, target int) bool {
 	return false
 }
 
-//剑指 Offer 04. 二维数组中的查找
-//https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
+// 剑指 Offer 04. 二维数组中的查找
+// https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
 func findNumberIn2DArray(matrix [][]int, target int) bool {
 	if len(matrix) == 0 {
 		return false
 	}
-	//开始竖着找
+	// 开始竖着找
 	for i := 0; i < len(matrix); i++ {
 		if _, ok := findInsertLoc(matrix[i], target); ok {
 			return true

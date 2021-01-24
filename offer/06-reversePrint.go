@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//2020-0802
+// 2020-0802
 func main() {
 
 	node1 := &ListNode{Val: 1}
@@ -47,43 +47,43 @@ func reversePrint2(head *ListNode) []int {
 		return nil
 	}
 	var eleLen int
-	//链表的2次遍历
-	//遍历第一次 确定链表的长度
+	// 链表的2次遍历
+	// 遍历第一次 确定链表的长度
 	head2 := head
 	for head2 != nil {
 		eleLen++
 		head2 = head2.Next
 	}
-	//遍历第二次 进行值的分配
+	// 遍历第二次 进行值的分配
 	eles := make([]int, eleLen)
 	for head != nil && eleLen-1 >= 0 {
 		eles[eleLen-1] = head.Val
 		head = head.Next
 		eleLen--
 	}
-	//链表遍历
+	// 链表遍历
 	return eles
 }
 
-//剑指 Offer 06. 从尾到头打印链表
-//https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+// 剑指 Offer 06. 从尾到头打印链表
+// https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
 func reversePrint(head *ListNode) []int {
 	if head == nil {
 		return nil
 	}
 	var node *ListNode
 	var eleLen int
-	//链表的反转
+	// 链表的反转
 	for head != nil {
 		eleLen++
 		temp := head.Next
-		//新节点，作为头节点
+		// 新节点，作为头节点
 		head.Next = node
 		node = head
 		head = temp
 	}
 
-	//初始化好空间，避免内存空间多次分配
+	// 初始化好空间，避免内存空间多次分配
 	eles := make([]int, eleLen)
 	var i int
 	for node != nil && i < eleLen {
@@ -91,6 +91,6 @@ func reversePrint(head *ListNode) []int {
 		node = node.Next
 		i++
 	}
-	//链表遍历
+	// 链表遍历
 	return eles
 }

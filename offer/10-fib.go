@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-//剑指 Offer 10- I. 斐波那契数列
-//https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/
+// 剑指 Offer 10- I. 斐波那契数列
+// https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/
 
 func main() {
 	var res uint64 = 1000000008
@@ -13,14 +13,14 @@ func main() {
 	fmt.Println(fib3(8))
 }
 
-//1 1 2 3 5 8 13 21 34 55
-//递推
+// 1 1 2 3 5 8 13 21 34 55
+// 递推
 func fib(n int) int {
 	if n == 0 || n == 1 {
 		return n
 	}
 
-	//利用切片,n+1,用n当做下标，来获取值
+	// 利用切片,n+1,用n当做下标，来获取值
 	nums := make([]int, n+1)
 	nums[0] = 0
 	nums[1] = 1
@@ -48,7 +48,7 @@ func fib2(n int) int {
 	return m2
 }
 
-//递归-超时
+// 递归-超时
 func fib3(n int) int {
 	if n == 0 || n == 1 {
 		return n
