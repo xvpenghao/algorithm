@@ -46,6 +46,7 @@ func reverseList(head *ListNode4) *ListNode4 {
 		// 提前保存下一个
 		tmp := head.Next
 		// 下一个和之前的已经 断开 连接了
+		// head.Next 下一个头，head2上一个头
 		head.Next = head2
 		head2 = head
 		head = tmp
