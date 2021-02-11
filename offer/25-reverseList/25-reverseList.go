@@ -3,15 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	head := &ListNode4{
+	head := &ListNode{
 		Val: 1,
-		Next: &ListNode4{
+		Next: &ListNode{
 			Val: 2,
-			Next: &ListNode4{
+			Next: &ListNode{
 				Val: 3,
-				Next: &ListNode4{
+				Next: &ListNode{
 					Val: 4,
-					Next: &ListNode4{
+					Next: &ListNode{
 						Val:  5,
 						Next: nil,
 					},
@@ -24,14 +24,14 @@ func main() {
 	fmt.Println(res)
 }
 
-type ListNode4 struct {
+type ListNode struct {
 	Val  int
-	Next *ListNode4
+	Next *ListNode
 }
 
 // 剑指 Offer 24. 反转链表
 // https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
-func reverseList(head *ListNode4) *ListNode4 {
+func reverseList(head *ListNode) *ListNode {
 	/*
 		输入: 1->2->3->4->5->NULL
 		输出: 5->4->3->2->1->NULL
@@ -41,7 +41,7 @@ func reverseList(head *ListNode4) *ListNode4 {
 		return head
 	}
 
-	var head2 *ListNode4
+	var head2 *ListNode
 	for head != nil {
 		// 提前保存下一个
 		tmp := head.Next

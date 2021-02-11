@@ -1,4 +1,4 @@
-package main
+package _3_findRepeatNumber
 
 func findRepeatNumber3(nums []int) int {
 	// 避免了内存空间的多次分配和 hash冲突处理

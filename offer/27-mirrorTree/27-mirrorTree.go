@@ -3,23 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	rootA := &TreeNode3{
+	rootA := &TreeNode{
 		Val: 4,
-		Left: &TreeNode3{
+		Left: &TreeNode{
 			Val: 2,
-			Left: &TreeNode3{
+			Left: &TreeNode{
 				Val: 1,
 			},
-			Right: &TreeNode3{
+			Right: &TreeNode{
 				Val: 3,
 			},
 		},
-		Right: &TreeNode3{
+		Right: &TreeNode{
 			Val: 7,
-			Left: &TreeNode3{
+			Left: &TreeNode{
 				Val: 6,
 			},
-			Right: &TreeNode3{
+			Right: &TreeNode{
 				Val: 9,
 			},
 		},
@@ -33,14 +33,14 @@ func main() {
 // https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
 //
 
-type TreeNode3 struct {
+type TreeNode struct {
 	Val   int
-	Left  *TreeNode3
-	Right *TreeNode3
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // 剑指 Offer 27. 二叉树的镜像
-func mirrorTree(root *TreeNode3) *TreeNode3 {
+func mirrorTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -51,7 +51,7 @@ func mirrorTree(root *TreeNode3) *TreeNode3 {
 	return root
 }
 
-func print2(root *TreeNode3) {
+func print2(root *TreeNode) {
 	if root == nil {
 		return
 	}

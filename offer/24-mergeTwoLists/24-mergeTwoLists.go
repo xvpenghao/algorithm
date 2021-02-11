@@ -3,22 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	head := &ListNode5{
+	head := &ListNode{
 		Val: 1,
-		Next: &ListNode5{
+		Next: &ListNode{
 			Val: 3,
-			Next: &ListNode5{
+			Next: &ListNode{
 				Val:  4,
 				Next: nil,
 			},
 		},
 	}
 
-	head2 := &ListNode5{
+	head2 := &ListNode{
 		Val: 1,
-		Next: &ListNode5{
+		Next: &ListNode{
 			Val: 2,
-			Next: &ListNode5{
+			Next: &ListNode{
 				Val:  4,
 				Next: nil,
 			},
@@ -29,15 +29,15 @@ func main() {
 	fmt.Println(res)
 }
 
-type ListNode5 struct {
+type ListNode struct {
 	Val  int
-	Next *ListNode5
+	Next *ListNode
 }
 
 // 剑指 Offer 25. 合并两个排序的链表
 // https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
 
-func mergeTwoLists2(l1 *ListNode5, l2 *ListNode5) *ListNode5 {
+func mergeTwoLists2(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil && l1 != nil {
 		return l1
 	}
@@ -49,7 +49,7 @@ func mergeTwoLists2(l1 *ListNode5, l2 *ListNode5) *ListNode5 {
 	// 输入：1->2->4, 1->3->4
 	// 输出：1->1->2->3->4->4
 	// 能不能同时遍历,两者 相互比较，然后添加到一个新的节点然后，最后返回
-	cur := new(ListNode5)
+	cur := new(ListNode)
 	// head2 执行 head
 	head2 := cur
 	for l1 != nil && l2 != nil {
@@ -75,7 +75,7 @@ func mergeTwoLists2(l1 *ListNode5, l2 *ListNode5) *ListNode5 {
 	return head2.Next
 }
 
-func mergeTwoLists(l1 *ListNode5, l2 *ListNode5) *ListNode5 {
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil && l1 != nil {
 		return l1
 	}
@@ -87,11 +87,11 @@ func mergeTwoLists(l1 *ListNode5, l2 *ListNode5) *ListNode5 {
 	// 输入：1->2->4, 1->3->4
 	// 输出：1->1->2->3->4->4
 	// 能不能同时遍历,两者 相互比较，然后添加到一个新的节点然后，最后返回
-	head := new(ListNode5)
+	head := new(ListNode)
 	// head2 执行 head
 	head2 := head
 	for l1 != nil || l2 != nil {
-		tmpNode := new(ListNode5)
+		tmpNode := new(ListNode)
 		// 比较大小添加新值
 		if l1 != nil && l2 != nil {
 			if l1.Val < l2.Val {

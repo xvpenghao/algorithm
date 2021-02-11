@@ -3,15 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	head := &ListNode3{
+	head := &ListNode{
 		Val: 1,
-		Next: &ListNode3{
+		Next: &ListNode{
 			Val: 2,
-			Next: &ListNode3{
+			Next: &ListNode{
 				Val: 3,
-				Next: &ListNode3{
+				Next: &ListNode{
 					Val: 4,
-					Next: &ListNode3{
+					Next: &ListNode{
 						Val:  5,
 						Next: nil,
 					},
@@ -25,12 +25,12 @@ func main() {
 
 // 剑指 Offer 22. 链表中倒数第k个节点
 // https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
-type ListNode3 struct {
+type ListNode struct {
 	Val  int
-	Next *ListNode3
+	Next *ListNode
 }
 
-func getKthFromEnd2(head *ListNode3, k int) *ListNode3 {
+func getKthFromEnd2(head *ListNode, k int) *ListNode {
 	if head == nil || k < 1 {
 		return nil
 	}
@@ -56,7 +56,7 @@ func getKthFromEnd2(head *ListNode3, k int) *ListNode3 {
 
 // 给定一个链表: 1->2->3->4->5, 和 k = 2.
 // 返回链表 4->5.
-func getKthFromEnd(head *ListNode3, k int) *ListNode3 {
+func getKthFromEnd(head *ListNode, k int) *ListNode {
 	if head == nil || k < 1 {
 		return nil
 	}

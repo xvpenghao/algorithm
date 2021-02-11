@@ -6,25 +6,25 @@ import (
 )
 
 func main() {
-	rootA := &TreeNode2{
+	rootA := &TreeNode{
 		Val: 3,
-		Left: &TreeNode2{
+		Left: &TreeNode{
 			Val: 4,
-			Left: &TreeNode2{
+			Left: &TreeNode{
 				Val: 1,
 			},
-			Right: &TreeNode2{
+			Right: &TreeNode{
 				Val: 2,
 			},
 		},
-		Right: &TreeNode2{
+		Right: &TreeNode{
 			Val: 5,
 		},
 	}
 
-	rootB := &TreeNode2{
+	rootB := &TreeNode{
 		Val: 4,
-		Left: &TreeNode2{
+		Left: &TreeNode{
 			Val:   1,
 			Left:  nil,
 			Right: nil,
@@ -43,16 +43,16 @@ func main() {
  *     Right *TreeNode
  * }
  */
-type TreeNode2 struct {
+type TreeNode struct {
 	Val   int
-	Left  *TreeNode2
-	Right *TreeNode2
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // 递归的实现
 // https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
 // 剑指 Offer 26. 树的子结构
-func isSubStructure2(A *TreeNode2, B *TreeNode2) bool {
+func isSubStructure2(A *TreeNode, B *TreeNode) bool {
 	// 前序遍历 + 判断是否有交集
 	// 空树 不是任意一个树的子结构
 	if B == nil || A == nil {
@@ -70,7 +70,7 @@ func isSubStructure2(A *TreeNode2, B *TreeNode2) bool {
 
 // 3 4 5 1 2
 // 4 1
-func isSubStructure(A *TreeNode2, B *TreeNode2) bool {
+func isSubStructure(A *TreeNode, B *TreeNode) bool {
 	// 空树 不是任意一个树的子结构
 	if B == nil {
 		return false
@@ -90,14 +90,14 @@ func isSubStructure(A *TreeNode2, B *TreeNode2) bool {
 		}
 
 		// 元素的 弹出
-		A = list2.Remove(list2.Back()).(*TreeNode2)
+		A = list2.Remove(list2.Back()).(*TreeNode)
 		// 设置右边的遍历节点
 		A = A.Right
 	}
 	return false
 }
 
-func recur(A *TreeNode2, B *TreeNode2) bool {
+func recur(A *TreeNode, B *TreeNode) bool {
 	// 说明已经遍历完毕了 递归结束条件
 	if B == nil {
 		return true
@@ -115,7 +115,7 @@ func recur(A *TreeNode2, B *TreeNode2) bool {
 	4 5
 	1 2
 */
-func traverse(A *TreeNode2) {
+func traverse(A *TreeNode) {
 	var list2 list.List
 	// 要不然第一次不会进去
 	for list2.Len() > 0 || A != nil {
@@ -128,7 +128,7 @@ func traverse(A *TreeNode2) {
 		}
 
 		// 元素的 弹出
-		A = list2.Remove(list2.Back()).(*TreeNode2)
+		A = list2.Remove(list2.Back()).(*TreeNode)
 		// 设置右边的遍历节点
 		A = A.Right
 	}

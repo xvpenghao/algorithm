@@ -1,4 +1,4 @@
-package main
+package _4_findNumberIn2DArray2
 
 /*
 * 正解
